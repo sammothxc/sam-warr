@@ -53,6 +53,7 @@ body.dark {
 }
 
 .svgs {
+  margin-top: 4rem;
   filter: var(--filter);
   transition: filter var(--ttime) ease;
 }
@@ -85,8 +86,11 @@ button {
 }
 
 button:hover {
-  border-color: var(--color2);
-  color: var(--color2);
+  border-color: var(--bg-color);
+  color: var(--bg-color);
+  background-color: var(--color2);
+  filter: drop-shadow(0 0 2em var(--color2));
+  transition: filter 0.3s ease, background-color var(--ttime);
 }
 
 /* Header styles */
@@ -160,6 +164,11 @@ menu {
   display: none;
 }
 
+.theme-toggle-label:hover {
+  filter: drop-shadow(0 0 2em var(--color2));
+  transition: filter 0.3s ease;
+}
+
 .theme-toggle-label {
   display: inline-block;
   width: 2.5rem;
@@ -190,4 +199,8 @@ menu {
 
 .theme-toggle-checkbox:checked + .theme-toggle-label::after {
   transform: translateX(1.25rem);
+}
+
+.punchline {
+  margin: 5rem;
 }

@@ -24,13 +24,18 @@ function Menu({ toggleTheme, theme }) {
 }
 
 function Home() {
+  const scrollToWhatWeDo = () => {
+    const whatWeDoSection = document.getElementById('WhatWeDo');
+    whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <section id='Home'>
       <div>
         <div>
           <img src={mainbl} className="svgs dark" />
         </div>
-        <p>Web development services for small businesses and individuals.</p>
+        <h1 className='punchline'>"Empowering businesses and individuals through custom web solutions."</h1>
+        <button onClick={scrollToWhatWeDo} className="scroll-button">Learn More</button>      
       </div>
     </section>
   )
