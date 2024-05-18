@@ -13,9 +13,10 @@ function Menu({ toggleTheme, theme }) {
           <li><a href="/#WhatWeDo">What We Do /<p className='outline'>/</p></a></li>
           <li><a href="/#CompletedProjects">Completed Projects /<p className='outline'>/</p></a></li>
           <li><a href="/#ContactUs">Contact Us /<p className='outline'>/</p></a></li>
-          <button onClick={toggleTheme}>
-            Switch to {theme === 'light' ? 'dark' : 'light'} mode /<p className='outline'>/</p>
-          </button>
+          <li className='toggle-container'>
+            <input type="checkbox" id="theme-toggle" className="theme-toggle-checkbox"/>
+            <label htmlFor="theme-toggle" className="theme-toggle-label"></label>
+          </li>
         </menu>
       </nav>
     </header>
@@ -78,13 +79,26 @@ function App() {
     document.body.setAttribute('class', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
+  useEffect(() => {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    });
+
+    // Clean up event listener on component unmount
+    return () => {
+      themeToggle.removeEventListener('change', () => {});
+    };
+  }, []);
 
   return (
     <div>
-      <Menu toggleTheme={toggleTheme} theme={theme} />
+      <Menu />
       <Home />
       <WhatWeDo />
       <CompletedProjects />
