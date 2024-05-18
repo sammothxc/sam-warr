@@ -1,42 +1,139 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  font-family: "Anton", sans-serif;
+
+  --bg-color-light: #dfc6a0;
+  --bg-color-dark: #242424;
+  --bg-color-t-light: #dfc6a000;
+  --bg-color-t-dark: #2424240a;
+  --color-light: #242424;
+  --color-dark: #efedea;
+  --color2-light: #004aad;
+  --color2-dark: #f6821f;
+  --filter-light: brightness(0) saturate(100%) invert(12%) sepia(17%) saturate(0%) hue-rotate(213deg) brightness(125%) contrast(105%);
+  --filter-dark: brightness(0) saturate(100%) invert(100%) sepia(48%) saturate(398%) hue-rotate(295deg) brightness(103%) contrast(87%);
+  --ttime: 0.5s;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--color);
+  text-align: center;
+  transition: background-color var(--ttime) ease, color var(--ttime) ease;
+}
+
+body.light {
+  --bg-color: var(--bg-color-light);
+  --bg-color-t: var(--bg-color-t-light);
+  --color: var(--color-light);
+  --color2: var(--color2-light);
+  --filter: var(--filter-light);
+}
+
+body.dark {
+  --bg-color: var(--bg-color-dark);
+  --bg-color-t: var(--bg-color-t-dark);
+  --color: var(--color-dark);
+  --color2: var(--color2-dark);
+  --filter: var(--filter-dark);
+}
+
+.outline {
+  display: inline;
+  color: var(--bg-color);
+  font-size: 16px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color);
+  transition: color var(--ttime) ease, -webkit-text-stroke-color var(--ttime) ease;
+  
+}
+
+.svgs {
+  filter: var(--filter);
+  transition: filter var(--ttime) ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color2);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--color);
+  background-color: var(--bg-color);
+  border-color: var(--color);
+  transition: border-color var(--ttime), color var(--ttime);
+}
+
+button:hover {
+  border-color: var(--color2);
+  color: var(--color2);
+}
+
+/* Header styles */
+header {
+  padding: .25rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #004aad);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #a5d261);
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  background-color: var(--bg-color);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navigation styles */
+nav {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 17px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav menu {
+  list-style-type: none;
 }
 
-.card {
-  padding: 2em;
+nav menu li {
+  display: inline;
+  margin-right: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+nav menu li a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav menu li a:hover {
+  filter: drop-shadow(0 0 2em var(--color2));
+  transition: filter 0.3s ease;
+}
+
+nav menu li a p {
+  margin: 0;
+}
+
+nav menu li a:hover p, nav menu button:hover p {
+  -webkit-text-stroke-color: var(--color2);
 }
