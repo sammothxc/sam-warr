@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import mylogo from '/favicon.svg'
-import swlogo from '.assets/swlogo.svg'
-import rrlogo from '.assets/rrlogo.svg'
+import swlogo from './assets/swlogo.svg'
+import rrlogo from './assets/rrlogo.svg'
 import './App.css'
 
 function App() {
