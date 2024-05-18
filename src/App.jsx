@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import swlogo from './assets/swlogo.svg'
-import rrlogo from './assets/rrlogo.svg'
 import mainbl from './assets/mainbl.svg'
 import './App.css'
 
@@ -14,9 +12,11 @@ function Menu({ toggleTheme, theme }) {
           <li><a href="/#CompletedProjects">Completed Projects /<p className='outline'>/</p></a></li>
           <li><a href="/#ContactUs">Contact Us /<p className='outline'>/</p></a></li>
           <li className='toggle-container'>
-            <input type="checkbox" id="theme-toggle" className="theme-toggle-checkbox"/>
+            <p>Dark Mode</p>
+            <input type="checkbox" id="theme-toggle" className="theme-toggle-checkbox" checked={theme === 'dark'} onChange={toggleTheme}/>
             <label htmlFor="theme-toggle" className="theme-toggle-label"></label>
           </li>
+
         </menu>
       </nav>
     </header>
@@ -73,32 +73,25 @@ function ContactUs() {
 }
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
     document.body.setAttribute('class', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
-    const themeToggle = document.getElementById('theme-toggle');
-    
-    themeToggle.addEventListener('change', function() {
-      if (this.checked) {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
-    });
+    document.body.setAttribute('class', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
-    // Clean up event listener on component unmount
-    return () => {
-      themeToggle.removeEventListener('change', () => {});
-    };
-  }, []);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
 
   return (
     <div>
-      <Menu />
+      <Menu theme={theme} toggleTheme={toggleTheme} />
       <Home />
       <WhatWeDo />
       <CompletedProjects />
