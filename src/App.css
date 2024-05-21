@@ -45,11 +45,16 @@ body.dark {
 .outline {
   display: inline;
   color: var(--bg-color);
-  font-size: 16px;
+  font-size: 1.2rem;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--color);
   transition: color var(--ttime) ease, -webkit-text-stroke-color var(--ttime) ease;
   
+}
+
+.outline {
+  -webkit-text-stroke-color: var(--color2);
+  transition: -webkit-text-stroke-color var(--ttime) ease;
 }
 
 .svgs {
@@ -61,9 +66,6 @@ body.dark {
 a {
   color: inherit;
   text-decoration: inherit;
-}
-a:hover {
-  color: var(--color2);
 }
 
 h1 {
@@ -84,7 +86,7 @@ button {
   border-color: var(--color);
   transition: border-color var(--ttime), color var(--ttime);
 }
-
+/*
 button:hover {
   border-color: var(--bg-color);
   color: var(--bg-color);
@@ -92,10 +94,9 @@ button:hover {
   filter: drop-shadow(0 0 2em var(--color2));
   transition: filter 0.3s ease, background-color var(--ttime);
 }
-
+*/
 /* Header styles */
 header {
-  padding: .25rem;
   text-align: center;
 }
 
@@ -110,8 +111,6 @@ header {
 
 /* Navigation styles */
 nav {
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
   width: 100%;
   font-size: 20px;
 }
@@ -125,28 +124,21 @@ nav menu li {
   margin-right: 2rem;
 }
 
-nav menu li a {
+nav menu li a, .opl {
   text-decoration: none;
   font-weight: bold;
-  transition: filter 0.3s ease;
+  padding: 0.5em 1em;
 }
 
-nav menu li a:hover {
-  filter: drop-shadow(0 0 2em var(--color2));
-  transition: filter 0.3s ease, color 0.3s ease;
-}
-
-nav menu li a p {
-  margin: 0;
-}
-
-nav menu li a:hover p, nav menu button:hover p {
-  -webkit-text-stroke-color: var(--color2);
+nav menu li a:hover, .opl:hover {
+  color: var(--color2);
+  transition: color 1s ease;
 }
 
 menu {
   display: flex;
   align-items: center;
+  margin-bottom: 0;
 }
 
 
@@ -165,7 +157,7 @@ menu {
 }
 
 .theme-toggle-label:hover {
-  filter: drop-shadow(0 0 2em var(--color2));
+  filter: drop-shadow(0 0 .75rem var(--color2));
   transition: filter 0.3s ease;
 }
 
@@ -203,4 +195,118 @@ menu {
 
 .punchline {
   margin: 5rem;
+}
+
+
+/*=== Drawing effect */
+.draw-border {
+  color: var(--color);
+  transition: color 0.25s 0.08333s;
+  position: relative;
+}
+
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: var(--color2);
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+  border-color: var(--color2);
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.opl {
+  font-size: 1.5rem;
+}
+
+#Home {
+  margin-bottom: 10rem;
+}
+#WhatWeDo {
+  margin-right: 12rem;
+  margin-left: 12rem;
+  background-color: var(--bg-color-t);
+  color: var(--color);
+  transition: background-color var(--ttime) ease, color var(--ttime) ease;
+}
+
+.skills-container {
+  padding: 1rem;
+}
+
+.skills-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  border: 0.3rem solid var(--color);
+  transition: border-color var(--ttime) ease;
+}
+
+.skill {
+  flex: 1;
+  margin: 0;
+  padding: 1rem;
+  border-right: 2px solid var(--color);
+  transition: border-color var(--ttime) ease;
+}
+
+.skill:last-child {
+  border-right: none;
+}
+
+.skill h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skill p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    flex-direction: column;
+  }
+
+  .skill {
+    border-right: none;
+    border-bottom: 2px solid var(--color);
+  }
+
+  .skill:last-child {
+    border-bottom: none;
+  }
 }

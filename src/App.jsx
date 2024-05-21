@@ -7,10 +7,10 @@ function Menu({ toggleTheme, theme }) {
     <header className="sticky-header">
       <nav>
         <menu>
-          <li><a href="/#Home">Home /<p className='outline'>/</p></a></li>
-          <li><a href="/#WhatWeDo">What We Do /<p className='outline'>/</p></a></li>
-          <li><a href="/#CompletedProjects">Completed Projects /<p className='outline'>/</p></a></li>
-          <li><a href="/#ContactUs">Contact Us /<p className='outline'>/</p></a></li>
+          <li><a className='draw-border' href="/#Home">Home /<p className='outline'>/</p></a></li>
+          <li><a className='draw-border' href="/#WhatWeDo">What We Do /<p className='outline'>/</p></a></li>
+          <li><a className='draw-border' href="/#CompletedProjects">Completed Projects /<p className='outline'>/</p></a></li>
+          <li><a className='draw-border' href="/#ContactUs">Contact Us /<p className='outline'>/</p></a></li>
           <li className='toggle-container'>
             <p>Dark Mode</p>
             <input type="checkbox" id="theme-toggle" className="theme-toggle-checkbox" checked={theme === 'dark'} onChange={toggleTheme}/>
@@ -35,8 +35,8 @@ function Home() {
           <img src={mainbl} className="svgs dark" />
         </div>
         <h1 className='punchline'>"Empowering businesses and individuals through custom web solutions."</h1>
-        <button onClick={scrollToWhatWeDo} className="scroll-button">Learn More</button>      
       </div>
+      <a className='draw-border  opl' onClick={scrollToWhatWeDo}>Learn More </a>
     </section>
   )
 }
@@ -45,6 +45,20 @@ function WhatWeDo() {
   return (
     <section id='WhatWeDo'>
       <h1>What We Do</h1>
+      <div className="skills-grid">
+        <div className="skill">
+          <h2>Web Development</h2>
+          <p>HTML, CSS, JavaScript, React, Node.js</p>
+        </div>
+        <div className="skill">
+          <h2>Design</h2>
+          <p>UI/UX, Photoshop, Figma</p>
+        </div>
+        <div className="skill">
+          <h2>Other Skills</h2>
+          <p>Project Management, SEO, Marketing</p>
+        </div>
+      </div>
     </section>
   )
 }
@@ -93,6 +107,22 @@ function App() {
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('intro') === 'true') return;
+    const timeoutId = setTimeout(() => {toggleTheme();}, 2000);
+    return () => clearTimeout(timeoutId);
+  }, []);
+  useEffect(() => {
+    if (localStorage.getItem('intro') === 'true') return;
+    const timeoutId = setTimeout(() => {toggleTheme();}, 3200);
+    return () => clearTimeout(timeoutId);
+  }, []);
+  useEffect(() => {
+    if (localStorage.getItem('intro') === 'true') return;
+    const timeoutId = setTimeout(() => {localStorage.setItem('intro', 'true');}, 500);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <div>
