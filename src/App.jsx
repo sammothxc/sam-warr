@@ -65,10 +65,10 @@ function WhatWeDo() {
 
 function CompletedProjects() {
   const projects = [
-    { name: 'RootRevolution', url: 'https://rootrevolution.store', imgName: 'rr.jpg' },
-    { name: 'Sam Warr Portfolio', url: 'https://sam-warr.com', imgName: 'swp.jpg' },
-    { name: 'Sam Warr Web Development', url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg' },
-    // Add projects here
+    { name: 'RootRevolution Seed Crowdfunding', url: 'https://rootrevolution.store', imgName: 'rr.jpg' },
+    { name: 'SCSS Personal Portfolio', url: 'https://old.sam-warr.com', imgName: 'swp.jpg' },
+    { name: 'Sam Warr Web Development Business Website', url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg' },
+    // Add new projects here
   ];
 
   return (
