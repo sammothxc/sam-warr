@@ -12,7 +12,8 @@ function Menu({ toggleTheme, theme }) {
     whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
   };
   const scrollToCompletedProjects = () => {
-    const completedProjectsSection = document.getElementById('CompletedProjects');
+    const completedProjectsSection = 
+    document.getElementById('CompletedProjects');
     completedProjectsSection.scrollIntoView({ behavior: 'smooth' });
   };
   const scrollToContactUs = () => {
