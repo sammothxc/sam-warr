@@ -66,7 +66,21 @@ body.dark {
   display: block;
   margin: 3rem auto;
 }
+/*
+@media (max-width: 768px) {
+  .svgs {
+    width: 100%;
+    height: auto;
+  }
+}
 
+@media (min-width: 769px) and (max-width: 1200px) {
+  .svgs {
+    width: 80%;
+    height: auto;
+  }
+}
+*/
 a {
   color: inherit;
   text-decoration: inherit;
