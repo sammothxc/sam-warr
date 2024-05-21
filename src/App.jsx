@@ -78,7 +78,7 @@ function Home() {
         </div>
         <h1 className='punchline'>
           "Empowering businesses and individuals
-          through custom web solutions."
+          through custom (but still budget friendly) web solutions."
         </h1>
       </div>
       <a className='draw-border opl' onClick={scrollToWhatWeDo}>
