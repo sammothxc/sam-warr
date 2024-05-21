@@ -139,7 +139,7 @@ function CompletedProjects() {
           >
             <div className='project draw-border'>
               <img
-                src={`/src/assets/${project.imgName}`}
+                src={`/${project.imgName}`}
                 alt={project.name}
                 className='project-image'
                 />
