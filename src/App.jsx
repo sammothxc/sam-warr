@@ -3,27 +3,43 @@ import mainbl from './assets/mainbl.svg'
 import './App.css'
 
 function Menu({ toggleTheme, theme }) {
+  const scrollToHome = () => {
+    const homeSection = document.getElementById('Home');
+    homeSection.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToWhatWeDo = () => {
+    const whatWeDoSection = document.getElementById('WhatWeDo');
+    whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToCompletedProjects = () => {
+    const completedProjectsSection = document.getElementById('CompletedProjects');
+    completedProjectsSection.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToContactUs = () => {
+    const contactUsSection = document.getElementById('ContactUs');
+    contactUsSection.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <header className="sticky-header">
       <nav>
         <menu>
           <li>
-            <a className='draw-border' href="/#Home">
+            <a className='draw-border' onClick={scrollToHome}>
               Home /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' href="/#WhatWeDo">
+            <a className='draw-border' onClick={scrollToWhatWeDo}>
               What We Do /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' href="/#CompletedProjects">
+            <a className='draw-border' onClick={scrollToCompletedProjects}>
               Completed Projects /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' href="/#ContactUs">
+            <a className='draw-border' onClick={scrollToContactUs}>
               Contact Us /<p className='outline'>/</p>
             </a>
           </li>
