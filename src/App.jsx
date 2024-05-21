@@ -64,24 +64,33 @@ function WhatWeDo() {
 }
 
 function CompletedProjects() {
+  const projects = [
+    { name: 'RootRevolution', url: 'https://rootrevolution.store', imgName: 'rr.jpg' },
+    { name: 'Sam Warr Portfolio', url: 'https://sam-warr.com', imgName: 'swp.jpg' },
+    { name: 'Sam Warr Web Development', url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg' },
+    // Add projects here
+  ];
+
   return (
     <section id='CompletedProjects'>
       <h1>Completed Projects</h1>
-      <div className='project'>
-        <h3>RootRevolution</h3>
-        <a href="https://rootrevolution.store">rootrevolution.store</a>
-      </div>
-      <div className='project'>
-        <h3>Sam Warr Portfolio</h3>
-        <a href="https://sam-warr.com">sam-warr.com</a>
-      </div>
-      <div className='project'>
-        <h3>Sam Warr Web Development</h3>
-        <a href="https://samwarrwebdev.com">samwarrwebdev.com</a>
+      <div className='projects-grid'>
+        {projects.map((project, index) => (
+          <a href={project.url} className='project-link' key={index} target='_blank' rel='noopener noreferrer'>
+            <div className='project'>
+              <img src={`/src/assets/${project.imgName}`} alt={project.name} className='project-image' />
+              <h3>{project.name}</h3>
+              <p>{project.url}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
-  )
+  );
 }
+
+
+
 
 function ContactUs() {
   return (
