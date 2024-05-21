@@ -64,7 +64,7 @@ function Home() {
           through custom web solutions."
         </h1>
       </div>
-      <a className='draw-border  opl' onClick={scrollToWhatWeDo}>
+      <a className='draw-border opl' onClick={scrollToWhatWeDo}>
         Learn More
       </a>
     </section>
@@ -78,8 +78,7 @@ function WhatWeDo() {
       <div className="skills-grid">
         <div className="skill">
           <h2>Web Development</h2>
-          <hr />
-          <div className='wrpr'>
+          <div className='wrpr mono'>
             <li>1</li>
             <li>2</li>
             <li>3</li>
@@ -87,8 +86,7 @@ function WhatWeDo() {
         </div>
         <div className="skill">
           <h2>Web Design</h2>
-          <hr />
-          <div className='wrpr'>
+          <div className='wrpr mono'>
             <li>1</li>
             <li>2</li>
             <li>3</li>
@@ -96,9 +94,8 @@ function WhatWeDo() {
         </div>
         <div className="skill">
           <h2>Other Services</h2>
-          <hr />
-          <div className='wrpr'>
-            <li>Social Media Management: Facebook, INstagram</li>
+          <div className='wrpr mono'>
+            <li>Social Media Management: Facebook, Instagram</li>
             <li>Logo Design: Photoshop, Gimp, Inkscape</li>
             <li>SEO: Keywords, Website optimization, Load times</li>
           </div>
@@ -148,7 +145,7 @@ function CompletedProjects() {
                 />
               <hr />
               <h3>{project.name}</h3>
-              <p>{project.url}</p>
+              <p className='mono'>{project.url}</p>
             </div>
           </a>
         ))}
@@ -164,7 +161,7 @@ function ContactUs() {
   return (
     <section id='ContactUs'>
       <h1>Contact Us</h1>
-      <div className='contact-form'>
+      <div className='contact-form mono'>
         <p>
           Send us a message and we'll get back to you as soon as possible.
         </p>

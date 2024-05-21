@@ -285,6 +285,13 @@ menu {
 
 .opl {
   font-size: 1.5rem;
+  border: 2px solid var(--color);
+}
+
+.opl:hover {
+  border-color: var(--bg-color);
+  color: var(--color2);
+  transition: color 1s ease;
 }
 
 #Home {
@@ -375,6 +382,7 @@ menu {
 
 .project:hover {
   border-color: var(--bg-color);
+  color: var(--color);
   text-decoration: none;
   transform: scale(1.05);
   transition:
@@ -406,4 +414,11 @@ menu {
 
 .wrpr li {
   text-align: left;
+}
+
+.mono {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
