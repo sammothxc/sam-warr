@@ -7,14 +7,39 @@ function Menu({ toggleTheme, theme }) {
     <header className="sticky-header">
       <nav>
         <menu>
-          <li><a className='draw-border' href="/#Home">Home /<p className='outline'>/</p></a></li>
-          <li><a className='draw-border' href="/#WhatWeDo">What We Do /<p className='outline'>/</p></a></li>
-          <li><a className='draw-border' href="/#CompletedProjects">Completed Projects /<p className='outline'>/</p></a></li>
-          <li><a className='draw-border' href="/#ContactUs">Contact Us /<p className='outline'>/</p></a></li>
+          <li>
+            <a className='draw-border' href="/#Home">
+              Home /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' href="/#WhatWeDo">
+              What We Do /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' href="/#CompletedProjects">
+              Completed Projects /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' href="/#ContactUs">
+              Contact Us /<p className='outline'>/</p>
+            </a>
+          </li>
           <li className='toggle-container'>
             <p>Dark Mode</p>
-            <input type="checkbox" id="theme-toggle" className="theme-toggle-checkbox" checked={theme === 'dark'} onChange={toggleTheme}/>
-            <label htmlFor="theme-toggle" className="theme-toggle-label"></label>
+            <input
+              type="checkbox"
+              id="theme-toggle"
+              className="theme-toggle-checkbox"
+              checked={theme === 'dark'}
+              onChange={toggleTheme}
+            />
+            <label
+              htmlFor="theme-toggle"
+              className="theme-toggle-label">
+            </label>
           </li>
 
         </menu>
@@ -34,9 +59,13 @@ function Home() {
         <div>
           <img src={mainbl} className="svgs dark" />
         </div>
-        <h1 className='punchline'>"Empowering businesses and individuals through custom web solutions."</h1>
+        <h1 className='punchline'>
+          "Empowering businesses and individuals through custom web solutions."
+        </h1>
       </div>
-      <a className='draw-border  opl' onClick={scrollToWhatWeDo}>Learn More </a>
+      <a className='draw-border  opl' onClick={scrollToWhatWeDo}>
+        Learn More
+      </a>
     </section>
   )
 }
@@ -65,9 +94,18 @@ function WhatWeDo() {
 
 function CompletedProjects() {
   const projects = [
-    { name: 'RootRevolution Seed Crowdfunding', url: 'https://rootrevolution.store', imgName: 'rr.jpg' },
-    { name: 'SCSS Personal Portfolio', url: 'https://old.sam-warr.com', imgName: 'swp.jpg' },
-    { name: 'Sam Warr Web Development Business Website', url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg' },
+    {
+      name: 'RootRevolution Seed Crowdfunding',
+      url: 'https://rootrevolution.store', imgName: 'rr.jpg'
+    },
+    {
+      name: 'SCSS Personal Portfolio',
+      url: 'https://old.sam-warr.com', imgName: 'swp.jpg'
+    },
+    {
+      name: 'Sam Warr Web Development Business Website',
+      url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg'
+    },
     // Add new projects here
   ];
 
@@ -76,9 +114,19 @@ function CompletedProjects() {
       <h1>Completed Projects</h1>
       <div className='projects-grid'>
         {projects.map((project, index) => (
-          <a href={project.url} className='project-link' key={index} target='_blank' rel='noopener noreferrer'>
-            <div className='project'>
-              <img src={`/src/assets/${project.imgName}`} alt={project.name} className='project-image' />
+          <a
+            href={project.url}
+            className='project-link'
+            key={index}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <div className='project draw-border'>
+              <img
+                src={`/src/assets/${project.imgName}`}
+                alt={project.name}
+                className='project-image'
+                />
               <h3>{project.name}</h3>
               <p>{project.url}</p>
             </div>
@@ -96,12 +144,19 @@ function ContactUs() {
   return (
     <section id='ContactUs'>
       <h1>Contact Us</h1>
+      <div className='contact-form'>
+        <p>
+          Send us a message and we'll get back to you as soon as possible.
+        </p>
+      </div>
     </section>
   )
 }
 
 function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() =>
+    localStorage.getItem('theme') || 'dark'
+  );
 
   useEffect(() => {
     document.body.setAttribute('class', theme);
@@ -129,7 +184,9 @@ function App() {
   }, []);
   useEffect(() => {
     if (localStorage.getItem('intro') === 'true') return;
-    const timeoutId = setTimeout(() => {localStorage.setItem('intro', 'true');}, 500);
+    const timeoutId = setTimeout(() =>
+      {localStorage.setItem('intro', 'true');}, 500
+    );
     return () => clearTimeout(timeoutId);
   }, []);
 
