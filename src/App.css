@@ -74,11 +74,11 @@ body.dark {
   filter: var(--filter);
   transition: filter var(--ttime) ease;
   height: auto;
-  max-width: 100%;
+  max-width: 95%;
   display: block;
   margin: 3rem auto;
 }
-/*
+
 @media (max-width: 768px) {
   .svgs {
     width: 100%;
@@ -88,11 +88,11 @@ body.dark {
 
 @media (min-width: 769px) and (max-width: 1200px) {
   .svgs {
-    width: 80%;
+    width: 90%;
     height: auto;
   }
 }
-*/
+
 a {
   color: inherit;
   text-decoration: inherit;
