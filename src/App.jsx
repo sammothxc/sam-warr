@@ -66,6 +66,28 @@ function Menu({ toggleTheme, theme }) {
 }
 
 function Home() {
+  const [text, setText] = useState('');
+  const fullText = 'Empowering businesses and individuals through custom web solutions.';
+  const typingSpeed = 150; //milliseconds
+  
+
+  useEffect(() => {
+    let index = 0;
+
+    function typeText() {
+      if (index < fullText.length) {
+        setText((prevText) => prevText + fullText[index]);
+        index++;
+        setTimeout(typeText, typingSpeed);
+      } else {
+        setText(fullText); // Set text to fullText once typing is complete
+      }
+    }
+
+    typeText();
+  }, []);
+
+
   const scrollToWhatWeDo = () => {
     const whatWeDoSection = document.getElementById('WhatWeDo');
     whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
@@ -76,11 +98,14 @@ function Home() {
         <div>
           <img src={mainbl} className="svgs dark" />
         </div>
-        <h1 className='punchline'>
-          "Empowering businesses and individuals
-          through custom (but still budget friendly) web solutions."
-        </h1>
       </div>
+      <div className="terminal mono">
+        <div className="text-with-cursor">
+          <p>{text}</p>
+          <span className="cursor">|</span>
+        </div>
+      </div>
+      <div id='gimmespace'/>
       <a className='draw-border opl' onClick={scrollToWhatWeDo}>
         Learn More
       </a>

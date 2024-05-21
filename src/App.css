@@ -423,3 +423,37 @@ menu {
   font-weight: 400;
   font-style: normal;
 }
+
+.terminal {
+  display: inline-block;
+  color: var(--color);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.text-with-cursor {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: var(--color);
+  width: 10px;
+  height: 1.2em; /* Adjust the height to match the font size */
+  margin-left: 2px;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+#gimmespace {
+  margin: 5rem;
+}
