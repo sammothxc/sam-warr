@@ -60,7 +60,8 @@ function Home() {
           <img src={mainbl} className="svgs dark" />
         </div>
         <h1 className='punchline'>
-          "Empowering businesses and individuals through custom web solutions."
+          "Empowering businesses and individuals
+          through custom web solutions."
         </h1>
       </div>
       <a className='draw-border  opl' onClick={scrollToWhatWeDo}>
