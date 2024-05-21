@@ -78,15 +78,30 @@ function WhatWeDo() {
       <div className="skills-grid">
         <div className="skill">
           <h2>Web Development</h2>
-          <p>HTML, CSS, JavaScript, React, Node.js</p>
+          <hr />
+          <div className='wrpr'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </div>
         </div>
         <div className="skill">
-          <h2>Design</h2>
-          <p>UI/UX, Photoshop, Figma</p>
+          <h2>Web Design</h2>
+          <hr />
+          <div className='wrpr'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </div>
         </div>
         <div className="skill">
-          <h2>Other Skills</h2>
-          <p>Project Management, SEO, Marketing</p>
+          <h2>Other Services</h2>
+          <hr />
+          <div className='wrpr'>
+            <li>Social Media Management: Facebook, INstagram</li>
+            <li>Logo Design: Photoshop, Gimp, Inkscape</li>
+            <li>SEO: Keywords, Website optimization, Load times</li>
+          </div>
         </div>
       </div>
     </section>
@@ -97,15 +112,18 @@ function CompletedProjects() {
   const projects = [
     {
       name: 'RootRevolution Seed Crowdfunding',
-      url: 'https://rootrevolution.store', imgName: 'rr.jpg'
+      url: 'https://rootrevolution.store',
+      imgName: 'rr.jpg'
     },
     {
       name: 'SCSS Personal Portfolio',
-      url: 'https://old.sam-warr.com', imgName: 'swp.jpg'
+      url: 'https://old.sam-warr.com',
+      imgName: 'swp.jpg'
     },
     {
       name: 'Sam Warr Web Development Business Website',
-      url: 'https://samwarrwebdev.com', imgName: 'swwd.jpg'
+      url: 'https://samwarrwebdev.com',
+      imgName: 'swwd.jpg'
     },
     // Add new projects here
   ];
@@ -128,6 +146,7 @@ function CompletedProjects() {
                 alt={project.name}
                 className='project-image'
                 />
+              <hr />
               <h3>{project.name}</h3>
               <p>{project.url}</p>
             </div>
