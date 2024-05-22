@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color-Changing Spirograph Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f0f0; /* Set the background color of the page */
+    }
+
+    svg {
+      display: block;
+      margin: auto;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <svg width="400" height="400">
+    <g id="spirograph"></g>
+  </svg>
+  
+  <script>
+    const svg = document.querySelector('svg');
+    const g = document.getElementById('spirograph');
+    const centerX = svg.getAttribute('width') / 2;
+    const centerY = svg.getAttribute('height') / 2;
+    const numCircles = 3; // Number of circles in the spirograph
+    const radius = 100; // Radius of the main circle
+    const speeds = [1, -2, 3]; // Speeds of each circle
+    let hue = 0; // Initial hue value
+
+    for (let i = 0; i < numCircles; i++) {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', centerX);
+      circle.setAttribute('cy', centerY);
+      circle.setAttribute('r', radius * ((i + 1) / numCircles));
+      circle.setAttribute('fill', 'none');
+      circle.setAttribute('stroke', `hsl(${hue}, 70%, 50%)`);
+      circle.setAttribute('stroke-width', 2);
+      g.appendChild(circle);
+      hue += 360 / numCircles; // Increment hue for each circle
+    }
+
+    let angle = 0;
+
+    function animateSpirograph() {
+      const points = [];
+      for (let i = 0; i < numCircles; i++) {
+        const speed = speeds[i];
+        const circle = g.children[i];
+        const r = parseFloat(circle.getAttribute('r'));
+        const x = centerX + r * Math.cos(angle * speed * Math.PI / 180);
+        const y = centerY + r * Math.sin(angle * speed * Math.PI / 180);
+        points.push(`${x},${y}`);
+      }
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', `M${points.join('L')}Z`);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', `hsl(${angle % 360}, 70%, 50%)`); // Adjust stroke color based on angle
+      path.setAttribute('stroke-width', 2);
+      g.appendChild(path);
+
+      angle += 1;
+      requestAnimationFrame(animateSpirograph);
+    }
+
+    animateSpirograph();
+  </script>
+</body>
+</html>

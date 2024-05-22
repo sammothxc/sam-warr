@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import Typewriter from 'typewriter-effect';
 import mainbl from './assets/mainbl.svg'
 import './App.css'
 
@@ -66,32 +67,11 @@ function Menu({ toggleTheme, theme }) {
 }
 
 function Home() {
-  const [text, setText] = useState('');
-  const fullText = 'Empowering businesses and individuals through custom web solutions.';
-  const typingSpeed = 150; //milliseconds
-  
-
-  useEffect(() => {
-    let index = 0;
-
-    function typeText() {
-      if (index < fullText.length) {
-        setText((prevText) => prevText + fullText[index]);
-        index++;
-        setTimeout(typeText, typingSpeed);
-      } else {
-        setText(fullText); // Set text to fullText once typing is complete
-      }
-    }
-
-    typeText();
-  }, []);
-
-
   const scrollToWhatWeDo = () => {
     const whatWeDoSection = document.getElementById('WhatWeDo');
     whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
   };
+
   return (
     <section id='Home'>
       <div>
@@ -100,10 +80,17 @@ function Home() {
         </div>
       </div>
       <div className="terminal mono">
-        <div className="text-with-cursor">
-          <p>{text}</p>
-          <span className="cursor">|</span>
-        </div>
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter.typeString(
+                'Empowering businesses and individuals through custom web solutions'
+              )
+              .typeString('sammo')
+              .pauseFor(2500)
+              .deleteAll()
+              .start();
+          }}
+        />
       </div>
       <div id='gimmespace'/>
       <a className='draw-border opl' onClick={scrollToWhatWeDo}>
@@ -114,11 +101,23 @@ function Home() {
 }
 
 function WhatWeDo() {
+  const [rawHTML, setRawHTML] = useState('');
+  useEffect(() => {
+    const captureRawHTML = () => {
+      const rawHTMLString = document.documentElement.outerHTML;
+      setRawHTML(rawHTMLString);
+    };
+    captureRawHTML();
+  }, []);
+
   return (
     <section id='WhatWeDo'>
       <h1>What We Do</h1>
       <div className="skills-grid">
         <div className="skill">
+          <div className="scrolling-background mono" id='scrolly'>
+            {rawHTML}
+          </div>
           <h2>Web Development</h2>
           <div className='wrpr mono'>
             <li>1</li>

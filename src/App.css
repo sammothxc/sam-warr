@@ -1,6 +1,8 @@
 :root {
   font-family: "Anton", sans-serif;
-
+  --scroll-speed: 20s;
+  --background-overlay: rgba(0, 0, 0, 0.7);
+  --background-code: #3b3b3b;
   --bg-color-light: #dfc6a0;
   --bg-color-dark: #242424;
   --bg-color-t-light: #dfc6a000;
@@ -29,6 +31,7 @@
 
 body {
   background-color: var(--bg-color);
+  margin: 0;
   color: var(--color);
   text-align: center;
   transition:
@@ -233,16 +236,13 @@ menu {
   font-size: 2rem;
 }
 
-
-/*=== Drawing effect */
 .draw-border {
   color: var(--color);
   transition: color 0.25s 0.08333s;
   position: relative;
 }
 
-.draw-border::before,
-.draw-border::after {
+.draw-border::before, .draw-border::after {
   border: 0 solid transparent;
   box-sizing: border-box;
   content: '';
@@ -268,8 +268,7 @@ menu {
   color: var(--color2);
 }
 
-.draw-border:hover::before,
-.draw-border:hover::after {
+.draw-border:hover::before, .draw-border:hover::after {
   border-color: var(--color2);
   transition: border-color 0s, width 0.25s, height 0.25s;
   width: 100%;
@@ -298,6 +297,7 @@ menu {
 #Home {
   margin-bottom: 10rem;
 }
+
 #WhatWeDo {
   margin-right: 12rem;
   margin-left: 12rem;
@@ -327,6 +327,8 @@ menu {
   padding: 1rem;
   border-right: 2px solid var(--color);
   transition: border-color var(--ttime) ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .skill:last-child {
@@ -410,6 +412,7 @@ menu {
 .wrpr {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin-left: 3rem;
 }
 
@@ -426,34 +429,36 @@ menu {
 
 .terminal {
   display: inline-block;
-  color: var(--color);
+  font-size: 1.6rem;
   padding: 20px;
   border-radius: 5px;
 }
 
-.text-with-cursor {
-  display: inline-flex;
-  align-items: center;
-}
-
-.cursor {
-  display: inline-block;
-  background-color: var(--color);
-  width: 10px;
-  height: 1.2em; /* Adjust the height to match the font size */
-  margin-left: 2px;
-  animation: blink 2s infinite;
-}
-
-@keyframes blink {
-  0%, 50%, 100% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
-  }
-}
-
 #gimmespace {
   margin: 5rem;
+}
+
+.scrolling-background {
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000%;
+  overflow: hidden;
+  z-index: -1;
+  color: var(--background-code);
+  white-space: pre-wrap;
+  animation: scrollBackground var(--scroll-speed) linear infinite;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+@keyframes scrollBackground {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-80%);
+  }
 }
