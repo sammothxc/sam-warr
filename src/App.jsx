@@ -286,8 +286,9 @@ function Contact() {
         </div>
         <div className='links'>
           <li><a href='/'>
-            Copyright © 2024, Sam Warr Web Development, or its affiliates
+            Copyright © 2024, Sam Warr Web Development
           </a></li>
+          <br />
           <li><a href='https://github.com/sammothxc/samwarrwebdev'>
             Github
           </a></li>

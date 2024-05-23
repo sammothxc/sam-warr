@@ -789,6 +789,49 @@ form input[type='checkbox']:checked {
     grid-template-columns: 1fr;
   }
 
+/* /// CONTACT /// */
+
+#contact-container {
+  padding: 2rem 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+#right {
+  width: 100%;
+  padding: 1rem;
+}
+
+.contact {
+  width: 100%;
+  padding: 1rem;
+}
+
+.email {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+#links-container {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.links {
+  flex-direction: column;
+  align-items: center;
+}
+
+#footer-img {
+  display: none;
+}
+
+.cta {
+  font-size: 1.5rem;
+  padding: 10px 20px;
+}
+
 /* /// QUOTE /// */
 
   #cbox {
