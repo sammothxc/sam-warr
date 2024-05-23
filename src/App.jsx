@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, React } from 'react'
+import { useForm, ValidationError } from '@formspree/react';
 import Typewriter from 'typewriter-effect';
 import mainbl from '/mainbl.svg'
 import footerimg from '/footerimg.svg'
@@ -220,9 +221,6 @@ function CompletedProjects() {
   );
 }
 
-
-
-
 function ContactUs() {
   return (
     <section id='ContactUs'>
@@ -286,6 +284,42 @@ function ContactUs() {
   )
 }
 
+function ContactForm() {
+  const [state, handleSubmit] = useForm("mdoqvzyp");
+  if (state.succeeded) {
+      return <p>Thanks for your interest!</p>;
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="email">
+        Email Address
+      </label>
+      <input
+        id="email"
+        type="email" 
+        name="email"
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+      <textarea
+        id="message"
+        name="message"
+      />
+      <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </form>
+  );
+}
+
 function App() {
   const [theme, setTheme] = useState(() =>
     localStorage.getItem('theme') || 'dark'
@@ -330,6 +364,7 @@ function App() {
       <WhatWeDo />
       <CompletedProjects />
       <ContactUs />
+      <ContactForm />
     </div>
   )
 }
