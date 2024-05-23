@@ -268,16 +268,16 @@ function ContactUs() {
           <li><a href='https://github.com/sammothxc/samwarrwebdev'>
             Github
           </a></li>
-          <li><a href='https://samwarrwebdev.com/sitemap.xml'>
+          <li><a href='/sitemap.xml'>
             Sitemap
           </a></li>
-          <li><a href='https://samwarrwebdev.com/mainbl.svg' target="_blank">
+          <li><a href='/mainbl.svg'>
             Logo
           </a></li>
-          <li><a href='https://samwarrwebdev.com/copyright-notice.html'>
+          <li><a href='/copyright-notice.html'>
             Copyright Notice
           </a></li>
-          <li><a href='https://samwarrwebdev.com/privacy-policy'>
+          <li><a href='/privacy-policy'>
             Privacy Policy
           </a></li>
         </div>
