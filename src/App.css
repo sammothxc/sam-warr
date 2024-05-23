@@ -1,5 +1,5 @@
 :root {
-  font-family: "Anton", sans-serif;
+  font-family: 'Anton', sans-serif;
   --scroll-speed: 20s;
   --background-overlay: rgba(0, 0, 0, 0.7);
   --background-code: #3b3b3b;
@@ -28,7 +28,7 @@
 }
 
 .mono {
-  font-family: "Kode Mono", monospace;
+  font-family: 'Kode Mono', monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -273,7 +273,7 @@ nav li a {
 }
 
 .theme-toggle-label::after {
-  content: "";
+  content: '';
   display: block;
   width: 1rem;
   height: 1rem;
@@ -515,7 +515,7 @@ nav li a {
   display: flex;
   padding: 10px 45px;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 2rem;
   color: var(--color);
   background: var(--bg-color-t);
   transition: 1s;
@@ -612,6 +612,7 @@ path.two {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   position: relative;
   min-width: 25rem;
+  transition: background-color var(--ttime) ease;
 }
 
 #menu {
@@ -629,7 +630,7 @@ form {
   padding: 3rem;
 }
 
-label {
+label, label p {
   display: block;
   margin-bottom: 5px;
   text-align: left;
@@ -640,7 +641,7 @@ textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color);
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -652,4 +653,34 @@ textarea {
 #sent {
   text-align: center;
   margin: 5rem;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--color);
+  background-color: var(--bg-color);
+  margin: 0;
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--color);
+  border-radius: 0;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--color2);
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
 }

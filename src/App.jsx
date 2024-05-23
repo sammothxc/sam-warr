@@ -231,7 +231,7 @@ function ContactUs() {
     <section id='ContactUs'>
       <h1>Let's Start /<p className='outline o1'>/</p></h1>
       <p className='mono'>
-        Send us a message or a quote and we'll get back to you as soon as possible!
+        Send us an email or a quote and we'll get back to you as soon as possible!
       </p>
       <div id='contact-container'>
         <div className='contact'>
@@ -246,7 +246,7 @@ function ContactUs() {
           <div>/<p className='outline o0'>/</p></div>
         </div>
         <div id='right' className='contact'>
-        <a onClick={togglePopup} className='cta'>
+        <a onClick={togglePopup} className='cta mono'>
           <span>Get Quote</span>
           <span>
             <svg width='66px' height='43px' viewBox='0 0 66 43' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
@@ -325,6 +325,65 @@ function ContactForm() {
         field='email'
         errors={state.errors}
       />
+      <p htmlFor='service'>
+        Service(s) Requesting
+      </p>
+      <div className='c-div'>
+        <input
+          id='single'
+          type='checkbox' 
+          name='service'
+          value='single'
+          required
+        />
+        <label htmlFor='single'>Single Page Website</label>
+      </div>
+      <div>
+        <input
+          id='multi'
+          type='checkbox' 
+          name='service'
+          value='multi'
+          required
+        />
+        <label htmlFor='multi'>Multi-page Website</label>
+      </div>
+      <div>
+        <input
+          id='webapp'
+          type='checkbox' 
+          name='service'
+          value='webapp'
+          required
+        />
+        <label htmlFor='webapp'>Web Application</label>
+      </div>
+      <div>
+        <input
+          id='mgmt'
+          type='checkbox' 
+          name='service'
+          value='mgmt'
+          required
+        />
+        <label htmlFor='mgmt'>Complete Webserver Management</label>
+      </div>
+      <div>
+        <input
+          id='social'
+          type='checkbox' 
+          name='service'
+          value='social'
+          required
+        />
+        <label htmlFor='social'>Social Media Management</label>
+      </div>
+
+      <ValidationError 
+        prefix='Service' 
+        field='service'
+        errors={state.errors}
+      />
       <label htmlFor='budget'>
         Budget (USD$)
       </label>
@@ -332,10 +391,11 @@ function ContactForm() {
         id='budget'
         type='number' 
         name='budget'
+        required
       />
       <ValidationError 
-        prefix='Email' 
-        field='email'
+        prefix='Budget' 
+        field='budget'
         errors={state.errors}
       />
       <label htmlFor='message'>
@@ -366,11 +426,7 @@ function Popup({ togglePopup }) {
       <div id='popup-content'>
         <div id='menu'>
           <h2>Get Quote /<p className='outline o2'>/</p></h2>
-          <a 
-            onClick={handleClose}
-            id='close-btn'
-            className='draw-border button'
-          >
+          <a onClick={handleClose} id='close-btn' className='draw-border button'>
             Close
           </a>
         </div>
