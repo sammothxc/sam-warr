@@ -28,16 +28,27 @@
 <body>
     <div class="container">
         <h1>Copyright Notice</h1>
-        <p>This website and its content are copyright of [Your Name or Company Name] [Year].
-            All rights reserved.</p>
-        <p>Any redistribution or reproduction of part or all of the contents in any form is prohibited
-            other than the following:</p>
-        <ul>
-            <li>You may print or download to a local hard disk extracts for your personal and non-commercial use only.</li>
-            <li>You may copy the content to individual third parties for their personal use, but only if you acknowledge the website as the source of the material.</li>
-        </ul>
-        <p>You may not, except with our express written permission, distribute or commercially exploit the content.
-            Nor may you transmit it or store it in any other website or other form of electronic retrieval system.</p>
+        <p>
+            Copyright © 2024 Sam Warr Web Development. All Rights Reserved.
+        </p>
+        <p>
+            All files and information contained in this Website
+            are copyright by Sam Warr Web Development, and may not
+            be duplicated, copied, modified or adapted, in any way
+            without our written permission. Our Website may contain
+            our service marks or trademarks as well as those of our
+            affiliates or other companies, in the form of words,
+            graphics, and logos. Your use of our Website or Services
+            does not constitute any right or license for you to use our
+            service marks or trademarks, without the prior written
+            permission of Sam Warr Web Development. Our Content, as
+            found within our Website and Services, is protected under
+            United States and foreign copyrights. The copying,
+            redistribution, use or publication by you of any such
+            Content, is strictly prohibited. Your use of our Website
+            and Services does not grant you any ownership rights to our
+            Content.
+        </p>
     </div>
 </body>
 </html>
