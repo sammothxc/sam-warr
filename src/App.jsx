@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Typewriter from 'typewriter-effect';
 import mainbl from './assets/mainbl.svg'
+import webdes from '/webdes.jpg'
 import './App.css'
 
 function Menu({ toggleTheme, theme }) {
@@ -24,43 +25,40 @@ function Menu({ toggleTheme, theme }) {
   return (
     <header className="sticky-header">
       <nav>
-        <menu>
-          <li>
-            <a className='draw-border' onClick={scrollToHome}>
-              Home /<p className='outline'>/</p>
-            </a>
-          </li>
-          <li>
-            <a className='draw-border' onClick={scrollToWhatWeDo}>
-              What We Do /<p className='outline'>/</p>
-            </a>
-          </li>
-          <li>
-            <a className='draw-border' onClick={scrollToCompletedProjects}>
-              Completed Projects /<p className='outline'>/</p>
-            </a>
-          </li>
-          <li>
-            <a className='draw-border' onClick={scrollToContactUs}>
-              Contact Us /<p className='outline'>/</p>
-            </a>
-          </li>
-          <li className='toggle-container'>
-            <p>Dark Mode</p>
-            <input
-              type="checkbox"
-              id="theme-toggle"
-              className="theme-toggle-checkbox"
-              checked={theme === 'dark'}
-              onChange={toggleTheme}
-            />
-            <label
-              htmlFor="theme-toggle"
-              className="theme-toggle-label">
-            </label>
-          </li>
-
-        </menu>
+        <li>
+          <a className='draw-border' onClick={scrollToHome}>
+            Home /<p className='outline'>/</p>
+          </a>
+        </li>
+        <li>
+          <a className='draw-border' onClick={scrollToWhatWeDo}>
+            What We Do /<p className='outline'>/</p>
+          </a>
+        </li>
+        <li>
+          <a className='draw-border' onClick={scrollToCompletedProjects}>
+            Completed Projects /<p className='outline'>/</p>
+          </a>
+        </li>
+        <li>
+          <a className='draw-border' onClick={scrollToContactUs}>
+            Contact Us /<p className='outline'>/</p>
+          </a>
+        </li>
+        <li className='toggle-container'>
+          <div>Dark Mode /<p className='outline'>/</p></div>
+          <input
+            type="checkbox"
+            id="theme-toggle"
+            className="theme-toggle-checkbox"
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+          />
+          <label
+            htmlFor="theme-toggle"
+            className="theme-toggle-label">
+          </label>
+        </li>
       </nav>
     </header>
   );
@@ -73,28 +71,42 @@ function Home() {
   };
 
   return (
-    <section id='Home'>
+    <section id='Home' className='section-end'>
       <div>
         <div>
-          <img src={mainbl} className="svgs dark" />
+          <img src={mainbl} className='svgs dark' />
         </div>
       </div>
-      <div className="terminal mono">
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter.typeString(
-                'Empowering businesses and individuals through custom web solutions'
-              )
-              .typeString('sammo')
-              .pauseFor(2500)
-              .deleteAll()
-              .start();
-          }}
-        />
+      <div className="terminal-container">
+        <div className='terminal mono'>
+          <Typewriter
+            className='typewriter'
+            options={{
+              autoStart: true,
+              loop: true,
+              delay: 50,
+              deleteSpeed: 50,
+              cursor: '█',
+            }}
+            onInit={(typewriter) => {
+              typewriter.typeString(
+                  '//> Empowering businesses and individuals through custom web solutions'
+                )
+                .pauseFor(1000)
+                .deleteChars(20)
+                .typeString('webserver management')
+                .pauseFor(2500)
+                .deleteChars(20)
+                .typeString('social media handling')
+                .pauseFor(2500)
+                .deleteAll()
+                .start();
+            }}
+          />
+        </div>
       </div>
-      <div id='gimmespace'/>
-      <a className='draw-border opl' onClick={scrollToWhatWeDo}>
-        Learn More
+      <a className='draw-border button o2' onClick={scrollToWhatWeDo}>
+        Learn More /<p className='outline o2'>/</p>
       </a>
     </section>
   )
@@ -110,82 +122,44 @@ function WhatWeDo() {
     captureRawHTML();
   }, []);
 
-  useEffect(() => {
-    const svg = document.querySelector('svg');
-    const g = document.getElementById('spirograph');
-    const centerX = svg.getAttribute('width') / 2;
-    const centerY = svg.getAttribute('height') / 2;
-    const numCircles = 3; // Number of circles in the spirograph
-    const radius = 100; // Radius of the main circle
-    const speeds = [1, -2, 3]; // Speeds of each circle
-    let hue = 0; // Initial hue value
-
-    for (let i = 0; i < numCircles; i++) {
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', centerX);
-      circle.setAttribute('cy', centerY);
-      circle.setAttribute('r', radius * ((i + 1) / numCircles));
-      circle.setAttribute('fill', 'none');
-      circle.setAttribute('stroke', `hsl(${hue}, 70%, 50%)`);
-      circle.setAttribute('stroke-width', 2);
-      g.appendChild(circle);
-      hue += 360 / numCircles; // Increment hue for each circle
-    }
-
-    let angle = 0;
-
-    function animateSpirograph() {
-      const points = [];
-      for (let i = 0; i < numCircles; i++) {
-        const speed = speeds[i];
-        const circle = g.children[i];
-        const r = parseFloat(circle.getAttribute('r'));
-        const x = centerX + r * Math.cos(angle * speed * Math.PI / 180);
-        const y = centerY + r * Math.sin(angle * speed * Math.PI / 180);
-        points.push(`${x},${y}`);
-      }
-      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      path.setAttribute('d', `M${points.join('L')}Z`);
-      path.setAttribute('fill', 'none');
-      path.setAttribute('stroke', `hsl(${angle % 360}, 70%, 50%)`); // Adjust stroke color based on angle
-      path.setAttribute('stroke-width', 2);
-      g.appendChild(path);
-
-      angle += 1;
-      requestAnimationFrame(animateSpirograph);
-    }
-
-    animateSpirograph();
-  }, []);
-  
   return (
-    <section id='WhatWeDo'>
-      <h1>What We Do</h1>
+    <section id='WhatWeDo' className='section-end'>
+      <h1>What We Do /<p className='outline o1'>/</p></h1>
       <div className="skills-grid">
         <div className="skill">
           <div className="scrolling-background mono" id='scrolly'>
             {rawHTML}
           </div>
-          <h2>Web Development</h2>
+          <h2>Web Development /<p className='outline o2'>/</p></h2>
           <div className='wrpr mono'>
+            <p>
+              From single page portfolios to multi-page business websites,
+              we offer a wide range of services such as:
+            </p>
+            <li>
+              Static Websites (HTML, CSS, JS)
+            </li>
+            <li>
+              Dynamic Websites (Backend development, Node.js server-side and
+              client-side, and API calls)
+            </li>
+            <li>
+              Web Applications (User authentication, information portals,
+              one-off online web tools)
+            </li>
+          </div>
+        </div>
+        <div className="skill">
+          <h2>Web Design /<p className='outline o2'>/</p></h2>
+          <div className='wrpr mono'>
+            <img src={`/webdes.jpg`} className='skill-image'/>
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </div>
         </div>
         <div className="skill">
-          <h2>Web Design</h2>
-          <div className='wrpr mono'>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <svg width="400" height="400">
-              <g id="spirograph"></g>
-            </svg>
-          </div>
-        </div>
-        <div className="skill">
-          <h2>Other Services</h2>
+          <h2>Other Services /<p className='outline o2'>/</p></h2>
           <div className='wrpr mono'>
             <li>Social Media Management: Facebook, Instagram</li>
             <li>Logo Design: Photoshop, Gimp, Inkscape</li>
@@ -219,7 +193,7 @@ function CompletedProjects() {
 
   return (
     <section id='CompletedProjects'>
-      <h1>Completed Projects</h1>
+      <h1>Completed Projects /<p className='outline o1'>/</p></h1>
       <div className='projects-grid'>
         {projects.map((project, index) => (
           <a
@@ -236,7 +210,7 @@ function CompletedProjects() {
                 className='project-image'
                 />
               <hr />
-              <h3>{project.name}</h3>
+              <h3>{project.name} /<p className='outline o3'>/</p></h3>
               <p className='mono'>{project.url}</p>
             </div>
           </a>
@@ -252,7 +226,7 @@ function CompletedProjects() {
 function ContactUs() {
   return (
     <section id='ContactUs'>
-      <h1>Contact Us</h1>
+      <h1>Contact Us /<p className='outline o1'>/</p></h1>
       <div className='contact-form mono'>
         <p>
           Send us a message and we'll get back to you as soon as possible.
