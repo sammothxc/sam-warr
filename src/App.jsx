@@ -274,7 +274,7 @@ function ContactUs() {
           <li><a href='/mainbl.svg'>
             Logo
           </a></li>
-          <li><a href='/copyright-notice.html'>
+          <li><a href='/copyright-notice'>
             Copyright Notice
           </a></li>
           <li><a href='/privacy-policy'>
