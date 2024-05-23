@@ -328,57 +328,58 @@ function ContactForm() {
       <p htmlFor='service'>
         Service(s) Requesting
       </p>
-      <div className='c-div'>
-        <input
-          id='single'
-          type='checkbox' 
-          name='service'
-          value='single'
-          required
-        />
-        <label htmlFor='single'>Single Page Website</label>
-      </div>
-      <div>
-        <input
-          id='multi'
-          type='checkbox' 
-          name='service'
-          value='multi'
-          required
-        />
-        <label htmlFor='multi'>Multi-page Website</label>
-      </div>
-      <div>
-        <input
-          id='webapp'
-          type='checkbox' 
-          name='service'
-          value='webapp'
-          required
-        />
-        <label htmlFor='webapp'>Web Application</label>
-      </div>
-      <div>
-        <input
-          id='mgmt'
-          type='checkbox' 
-          name='service'
-          value='mgmt'
-          required
-        />
-        <label htmlFor='mgmt'>Complete Webserver Management</label>
-      </div>
-      <div>
-        <input
-          id='social'
-          type='checkbox' 
-          name='service'
-          value='social'
-          required
-        />
-        <label htmlFor='social'>Social Media Management</label>
-      </div>
+      <div id='cbox'>
 
+        <label htmlFor='single'>
+          <input
+            id='single'
+            type='checkbox' 
+            name='service'
+            value='single'
+            required />
+          Single Page Website
+        </label>
+
+        <label htmlFor='multi'>
+          <input
+            id='multi'
+            type='checkbox' 
+            name='service'
+            value='multi'
+            required />
+          Multi-page Website
+        </label>
+
+        <label htmlFor='webapp'>
+          <input
+            id='webapp'
+            type='checkbox' 
+            name='service'
+            value='webapp'
+            required />
+          Web Application
+        </label>
+
+        <label htmlFor='mgmt'>
+          <input
+            id='mgmt'
+            type='checkbox' 
+            name='service'
+            value='mgmt'
+            required />
+          Complete Webserver Management
+        </label>
+
+        <label htmlFor='social'>
+          <input
+            id='social'
+            type='checkbox' 
+            name='service'
+            value='social'
+            required />
+          Social Media Management
+        </label>
+      </div>
       <ValidationError 
         prefix='Service' 
         field='service'

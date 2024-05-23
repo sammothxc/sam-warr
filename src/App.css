@@ -630,7 +630,7 @@ form {
   padding: 3rem;
 }
 
-label, label p {
+label, form p {
   display: block;
   margin-bottom: 5px;
   text-align: left;
@@ -669,6 +669,8 @@ form input[type='checkbox'] {
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
+  vertical-align: middle;
+  position: relative;
 
 }
 
