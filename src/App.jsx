@@ -12,47 +12,36 @@ function Menu({ toggleTheme, theme }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToHome = () => {
-    const homeSection = document.getElementById('Home');
-    homeSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
-  const scrollToWhatWeDo = () => {
-    const whatWeDoSection = document.getElementById('WhatWeDo');
-    whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
-  };
-  const scrollToCompletedProjects = () => {
-    const completedProjectsSection = 
-    document.getElementById('CompletedProjects');
-    completedProjectsSection.scrollIntoView({ behavior: 'smooth' });
-  };
-  const scrollToContactUs = () => {
-    const contactUsSection = document.getElementById('ContactUs');
-    contactUsSection.scrollIntoView({ behavior: 'smooth' });
-  };
+
   return (
-    <header className='sticky-header'>
+    <header id='sticky-header'>
       <nav>
       <div className='menu-toggle' onClick={toggleMenu}>
           <span className='menu-icon'>☰</span>
         </div>
         <ul className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
           <li>
-            <a className='draw-border' onClick={scrollToHome}>
+            <a className='draw-border' onClick={() => scrollToSection('home')}>
               Home /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' onClick={scrollToWhatWeDo}>
+            <a className='draw-border' onClick={() => scrollToSection('services')}>
               What We Do /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' onClick={scrollToCompletedProjects}>
+            <a className='draw-border' onClick={() => scrollToSection('projects')}>
               Completed Projects /<p className='outline'>/</p>
             </a>
           </li>
           <li>
-            <a className='draw-border' onClick={scrollToContactUs}>
+            <a className='draw-border' onClick={() => scrollToSection('contact')}>
               Contact Us /<p className='outline'>/</p>
             </a>
           </li>
@@ -77,13 +66,14 @@ function Menu({ toggleTheme, theme }) {
 }
 
 function Home() {
-  const scrollToWhatWeDo = () => {
-    const whatWeDoSection = document.getElementById('WhatWeDo');
-    whatWeDoSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
 
   return (
-    <section id='Home' className='section'>
+    <section id='home' className='section'>
       <div>
         <div>
           <img src={mainbl} className='svgs dark' />
@@ -117,14 +107,20 @@ function Home() {
           />
         </div>
       </div>
-      <a className='draw-border button o2' onClick={scrollToWhatWeDo}>
+      <a className='draw-border button o2' onClick={() => scrollToSection('services')}>
         Learn More /<p className='outline o2'>/</p>
       </a>
     </section>
   )
 }
 
-function WhatWeDo() {
+function Services() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const [rawHTML, setRawHTML] = useState('');
   useEffect(() => {
     const captureRawHTML = () => {
@@ -135,7 +131,7 @@ function WhatWeDo() {
   }, []);
 
   return (
-    <section id='WhatWeDo' className='section'>
+    <section id='services' className='section'>
       <h1>What We Do /<p className='outline o1'>/</p></h1>
       <div className='skills-grid'>
         <div className='skill'>
@@ -183,7 +179,13 @@ function WhatWeDo() {
   )
 }
 
-function CompletedProjects() {
+function Projects() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const projects = [
     {
       name: 'RootRevolution Seed Crowdfunding',
@@ -204,7 +206,7 @@ function CompletedProjects() {
   ];
 
   return (
-    <section id='CompletedProjects' className='section'>
+    <section id='projects' className='section'>
       <h1>Completed Projects /<p className='outline o1'>/</p></h1>
       <div className='projects-grid'>
         {projects.map((project, index) => (
@@ -232,14 +234,20 @@ function CompletedProjects() {
   );
 }
 
-function ContactUs() {
+function Contact() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
   return (
-    <section id='ContactUs'>
+    <section id='contact'>
       <h1>Let's Start /<p className='outline o1'>/</p></h1>
       <p className='mono'>
         Send us an email or a quote and we'll get back to you as soon as possible!
@@ -301,7 +309,26 @@ function ContactUs() {
   )
 }
 
-function ContactForm() {
+function Popup({ togglePopup }) {
+  const handleClose = () => {
+    togglePopup();
+  };
+  return (
+    <div id='popup-overlay'>
+      <div id='popup-content'>
+        <div id='menu'>
+          <h2>Get Quote /<p className='outline o2'>/</p></h2>
+          <a onClick={handleClose} id='close-btn' className='draw-border button'>
+            Close
+          </a>
+        </div>
+        <Quote />
+      </div>
+    </div>
+  );
+}
+
+function Quote() {
   const [state, handleSubmit] = useForm('mdoqvzyp');
   if (state.succeeded) {
       return <p id='sent'>Thanks for your interest! We will get back to you as soon as we can.</p>;
@@ -429,25 +456,6 @@ function ContactForm() {
   );
 }
 
-function Popup({ togglePopup }) {
-  const handleClose = () => {
-    togglePopup();
-  };
-  return (
-    <div id='popup-overlay'>
-      <div id='popup-content'>
-        <div id='menu'>
-          <h2>Get Quote /<p className='outline o2'>/</p></h2>
-          <a onClick={handleClose} id='close-btn' className='draw-border button'>
-            Close
-          </a>
-        </div>
-        <ContactForm />
-      </div>
-    </div>
-  );
-}
-
 function App() {
   const [theme, setTheme] = useState(() =>
     localStorage.getItem('theme') || 'dark'
@@ -489,9 +497,9 @@ function App() {
     <div>
       <Menu theme={theme} toggleTheme={toggleTheme} />
       <Home />
-      <WhatWeDo />
-      <CompletedProjects />
-      <ContactUs />
+      <Services />
+      <Projects />
+      <Contact />
     </div>
   )
 }

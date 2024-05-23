@@ -64,6 +64,15 @@ body.dark {
   --filter: var(--filter-dark);
 }
 
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 24px;
+}
+
 .outline {
   font-size: 1.1rem;
   display: inline;
@@ -99,20 +108,6 @@ body.dark {
   max-width: 95%;
   display: block;
   margin: 1rem auto;
-}
-
-@media (max-width: 768px) {
-  .svgs {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1200px) {
-  .svgs {
-    width: 90%;
-    height: auto;
-  }
 }
 
 h1 {
@@ -212,10 +207,10 @@ button {
 }
 
 /* //////////////////////////////////////////////// */
-/* //////             CONTENT STUFF           ///// */
+/* //////                 MENU                ///// */
 /* //////////////////////////////////////////////// */
 
-.sticky-header {
+#sticky-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -227,18 +222,19 @@ button {
   padding: 1rem 2rem;
 }
 
-nav {
+nav ul {
   display: flex;
   font-size: 1.2rem;
   list-style: none;
+  margin: 0;
 }
 
-nav li {
+nav ul li {
   display: inline;
   margin-right: 2rem;
 }
 
-nav li a {
+nav ul li a {
   padding: 0.5em 1em;
 }
 
@@ -314,10 +310,10 @@ nav li a {
 }
 
 /* //////////////////////////////////////////////// */
-/* //////                SKILLS               ///// */
+/* //////               SERVICES              ///// */
 /* //////////////////////////////////////////////// */
 
-#WhatWeDo {
+#services {
   margin-right: 12rem;
   margin-left: 12rem;
   margin-top: 16rem;
@@ -394,21 +390,6 @@ nav li a {
   }
 }
 
-@media (max-width: 768px) {
-  .skills-grid {
-    flex-direction: column;
-  }
-
-  .skill {
-    border-right: none;
-    border-bottom: 2px solid var(--color);
-  }
-
-  .skill:last-child {
-    border-bottom: none;
-  }
-}
-
 /* //////////////////////////////////////////////// */
 /* //////               PROJECTS              ///// */
 /* //////////////////////////////////////////////// */
@@ -454,9 +435,7 @@ nav li a {
 }
 
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+
 }
 
 /* //////////////////////////////////////////////// */
@@ -707,29 +686,23 @@ form input[type='checkbox']:checked {
 /* //////////////////////////////////////////////// */
 
 @media (max-width: 768px) {
-  #cbox {
+  .draw-border {
+    padding: 10px 20px;
+  }
+
+  .toggle-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #cbox label {
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    padding: 10px 0;
   }
 
-  .input-box {
+  .svgs {
     width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid var(--color);
-    border-radius: 4px;
+    height: auto;
   }
 
-  #cbox input[type='checkbox'] {
-    width: auto;
-  }
-
+/* /// MENU /// */
   .menu-toggle {
     display: block;
   }
@@ -758,16 +731,73 @@ form input[type='checkbox']:checked {
     padding: 10px 0;
   }
 
-  .draw-border {
-    display: block;
+/* /// HOME /// */
+
+  .terminal {
     width: 100%;
-    padding: 10px 20px;
   }
 
-  .toggle-container {
+  .terminal-container {
+    padding: 1rem;
+    height: 15rem;
+  }
+
+/* /// SERVICES /// */
+
+  .skills-grid {
+    flex-direction: column;
+  }
+
+  .skill {
+    border-right: none;
+    border-bottom: 2px solid var(--color);
+  }
+
+  .skill:last-child {
+    border-bottom: none;
+  }
+
+/* /// PROJECTS /// */
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+/* /// QUOTE /// */
+
+  #cbox {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+  }
+
+  #cbox label {
     align-items: center;
-    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .input-box {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid var(--color);
+    border-radius: 4px;
+  }
+
+  #cbox input[type='checkbox'] {
+    width: auto;
+  }
+  form button {
+    width: 100%;
+  }
+}
+
+/* //////////////////////////////////////////////// */
+/* //////                TABLET               ///// */
+/* //////////////////////////////////////////////// */
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .svgs {
+    width: 90%;
+    height: auto;
   }
 }
