@@ -293,7 +293,7 @@ function ContactUs() {
 function ContactForm() {
   const [state, handleSubmit] = useForm('mdoqvzyp');
   if (state.succeeded) {
-      return <p id='sent'>Thanks for your interest!</p>;
+      return <p id='sent'>Thanks for your interest! We will get back to you as soon as we can.</p>;
   }
   return (
     <form onSubmit={handleSubmit}>
