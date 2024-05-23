@@ -338,7 +338,7 @@ function ContactForm() {
             type='checkbox' 
             name='service'
             value='single' />
-          <span>Single Page Website</span>
+          <span className='mono'>Single Page Website</span>
         </label>
 
         <label htmlFor='multi'>
@@ -347,7 +347,7 @@ function ContactForm() {
             type='checkbox' 
             name='service'
             value='multi' />
-          <span>Multi-page Website</span>
+          <span className='mono'>Multi-page Website</span>
         </label>
 
         <label htmlFor='webapp'>
@@ -356,7 +356,7 @@ function ContactForm() {
             type='checkbox' 
             name='service'
             value='webapp' />
-          <span>Web Application</span>
+          <span className='mono'>Web Application</span>
         </label>
 
         <label htmlFor='mgmt'>
@@ -365,7 +365,7 @@ function ContactForm() {
             type='checkbox' 
             name='service'
             value='mgmt' />
-          <span>Complete Webserver Management</span>
+          <span className='mono'>Complete Webserver Management</span>
         </label>
 
         <label htmlFor='social'>
@@ -374,7 +374,7 @@ function ContactForm() {
             type='checkbox' 
             name='service'
             value='social' />
-          <span>Social Media Management</span>
+          <span className='mono'>Social Media Management</span>
         </label>
 
       </div>

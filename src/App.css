@@ -634,6 +634,7 @@ label, form p {
   display: block;
   margin-bottom: 5px;
   text-align: left;
+  margin-top: 0;
 }
 
 .input-box, input {
@@ -690,8 +691,9 @@ form input[type='checkbox']:hover {
   box-shadow: 0 0 0 0.15em var(--color2);
 }
 
-span {
+label span {
   vertical-align: middle;
+  font-size: 0.9rem;
 }
 
 form input[type='checkbox']:checked {
