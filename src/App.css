@@ -322,6 +322,7 @@ nav ul li a {
   transition:
   background-color var(--ttime) ease,
   color var(--ttime) ease;
+  padding: 2rem 2rem;
 }
 
 .skills-container {
@@ -334,10 +335,12 @@ nav ul li a {
   margin-top: 2rem;
   border: 0.3rem solid var(--color);
   transition: border-color var(--ttime) ease;
+  flex-wrap: wrap;
+  
 }
 
 .skill {
-  flex: 1;
+  flex: 1 1 30%;
   margin: 0;
   padding: 1rem;
   border-right: 2px solid var(--color);
@@ -744,6 +747,11 @@ form input[type='checkbox']:checked {
 
 /* /// SERVICES /// */
 
+  #services {
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
   .skills-grid {
     flex-direction: column;
   }
@@ -756,6 +764,11 @@ form input[type='checkbox']:checked {
   .skill:last-child {
     border-bottom: none;
   }
+
+  .wrpr {
+    margin: 0;
+  }
+
 
 /* /// PROJECTS /// */
 
