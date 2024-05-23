@@ -271,7 +271,7 @@ function ContactUs() {
           <li><a href='https://samwarrwebdev.com/sitemap.xml'>
             Sitemap
           </a></li>
-          <li><a href='https://samwarrwebdev.com/mainbl.svg'>
+          <li><a href='https://samwarrwebdev.com/mainbl.svg' target="_blank">
             Logo
           </a></li>
           <li><a href='https://samwarrwebdev.com/copyright-notice.html'>
