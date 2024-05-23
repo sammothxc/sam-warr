@@ -6,6 +6,12 @@ import footerimg from '/footerimg.svg'
 import './App.css'
 
 function Menu({ toggleTheme, theme }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const scrollToHome = () => {
     const homeSection = document.getElementById('Home');
     homeSection.scrollIntoView({ behavior: 'smooth' });
@@ -26,40 +32,45 @@ function Menu({ toggleTheme, theme }) {
   return (
     <header className='sticky-header'>
       <nav>
-        <li>
-          <a className='draw-border' onClick={scrollToHome}>
-            Home /<p className='outline'>/</p>
-          </a>
-        </li>
-        <li>
-          <a className='draw-border' onClick={scrollToWhatWeDo}>
-            What We Do /<p className='outline'>/</p>
-          </a>
-        </li>
-        <li>
-          <a className='draw-border' onClick={scrollToCompletedProjects}>
-            Completed Projects /<p className='outline'>/</p>
-          </a>
-        </li>
-        <li>
-          <a className='draw-border' onClick={scrollToContactUs}>
-            Contact Us /<p className='outline'>/</p>
-          </a>
-        </li>
-        <li className='toggle-container'>
-          <div>Dark Mode /<p className='outline'>/</p></div>
-          <input
-            type='checkbox'
-            id='theme-toggle'
-            className='theme-toggle-checkbox'
-            checked={theme === 'dark'}
-            onChange={toggleTheme}
-          />
-          <label
-            htmlFor='theme-toggle'
-            className='theme-toggle-label'>
-          </label>
-        </li>
+      <div className='menu-toggle' onClick={toggleMenu}>
+          <span className='menu-icon'>☰</span>
+        </div>
+        <ul className={`menu-items ${isMenuOpen ? 'open' : ''}`}>
+          <li>
+            <a className='draw-border' onClick={scrollToHome}>
+              Home /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' onClick={scrollToWhatWeDo}>
+              What We Do /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' onClick={scrollToCompletedProjects}>
+              Completed Projects /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li>
+            <a className='draw-border' onClick={scrollToContactUs}>
+              Contact Us /<p className='outline'>/</p>
+            </a>
+          </li>
+          <li className='toggle-container'>
+            <div>Dark Mode /<p className='outline'>/</p></div>
+            <input
+              type='checkbox'
+              id='theme-toggle'
+              className='theme-toggle-checkbox'
+              checked={theme === 'dark'}
+              onChange={toggleTheme}
+            />
+            <label
+              htmlFor='theme-toggle'
+              className='theme-toggle-label'>
+            </label>
+          </li>
+        </ul>
       </nav>
     </header>
   );
