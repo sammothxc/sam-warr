@@ -627,7 +627,7 @@ path.two {
 
 form {
   margin: 0 auto;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 label, form p {
@@ -636,8 +636,7 @@ label, form p {
   text-align: left;
 }
 
-input,
-textarea {
+.input-box, input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -647,7 +646,7 @@ textarea {
 }
 
 textarea {
-  height: 150px;
+  height: 7rem;
 }
 
 #sent {
@@ -667,7 +666,6 @@ form input[type='checkbox'] {
   border: 0.15em solid var(--color);
   border-radius: 0;
   transform: translateY(-0.075em);
-  display: grid;
   place-content: center;
   vertical-align: middle;
   position: relative;
@@ -690,4 +688,8 @@ form input[type='checkbox']:checked::before {
 form input[type='checkbox']:hover {
   outline: none;
   box-shadow: 0 0 0 0.15em var(--color2);
+}
+
+span {
+  vertical-align: middle;
 }

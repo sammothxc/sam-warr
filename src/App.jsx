@@ -301,6 +301,7 @@ function ContactForm() {
         Your Name
       </label>
       <input
+        className='input-box'
         id='name'
         type='text' 
         name='name'
@@ -315,6 +316,7 @@ function ContactForm() {
         Email Address
       </label>
       <input
+      className='input-box'
         id='email'
         type='email' 
         name='email'
@@ -335,9 +337,8 @@ function ContactForm() {
             id='single'
             type='checkbox' 
             name='service'
-            value='single'
-            required />
-          Single Page Website
+            value='single' />
+          <span>Single Page Website</span>
         </label>
 
         <label htmlFor='multi'>
@@ -345,9 +346,8 @@ function ContactForm() {
             id='multi'
             type='checkbox' 
             name='service'
-            value='multi'
-            required />
-          Multi-page Website
+            value='multi' />
+          <span>Multi-page Website</span>
         </label>
 
         <label htmlFor='webapp'>
@@ -355,9 +355,8 @@ function ContactForm() {
             id='webapp'
             type='checkbox' 
             name='service'
-            value='webapp'
-            required />
-          Web Application
+            value='webapp' />
+          <span>Web Application</span>
         </label>
 
         <label htmlFor='mgmt'>
@@ -365,9 +364,8 @@ function ContactForm() {
             id='mgmt'
             type='checkbox' 
             name='service'
-            value='mgmt'
-            required />
-          Complete Webserver Management
+            value='mgmt' />
+          <span>Complete Webserver Management</span>
         </label>
 
         <label htmlFor='social'>
@@ -375,10 +373,10 @@ function ContactForm() {
             id='social'
             type='checkbox' 
             name='service'
-            value='social'
-            required />
-          Social Media Management
+            value='social' />
+          <span>Social Media Management</span>
         </label>
+
       </div>
       <ValidationError 
         prefix='Service' 
@@ -389,6 +387,7 @@ function ContactForm() {
         Budget (USD$)
       </label>
       <input
+        className='input-box'
         id='budget'
         type='number' 
         name='budget'
@@ -403,6 +402,7 @@ function ContactForm() {
         Put your message here (optional)
       </label>
       <textarea
+        className='input-box'
         id='message'
         name='message'
       />
