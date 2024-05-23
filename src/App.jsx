@@ -262,7 +262,7 @@ function ContactUs() {
           <img id='footerimg' src={footerimg} className='svgs dark'/>
         </div>
         <div className='links'>
-          <li><a href='https://samwarrwebdev.com'>
+          <li><a href='/'>
             Copyright © 2024, Sam Warr Web Development, or its affiliates
           </a></li>
           <li><a href='https://github.com/sammothxc/samwarrwebdev'>
