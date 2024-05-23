@@ -701,3 +701,33 @@ form input[type='checkbox']:checked {
   background: var(--color2) border-box;
   box-shadow: 0 0 0 0.3em inset var(--bg-color);
 }
+
+/* //////////////////////////////////////////////// */
+/* //////                MOBILE               ///// */
+/* //////////////////////////////////////////////// */
+
+@media (max-width: 768px) {
+  #cbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #cbox label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-box {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid var(--color);
+    border-radius: 4px;
+  }
+
+  #cbox input[type='checkbox'] {
+    width: auto;
+  }
+}
