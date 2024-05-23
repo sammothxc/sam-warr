@@ -655,7 +655,7 @@ textarea {
   margin: 5rem;
 }
 
-input[type='checkbox'] {
+form input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
   color: var(--color);
@@ -672,7 +672,7 @@ input[type='checkbox'] {
 
 }
 
-input[type='checkbox']::before {
+form input[type='checkbox']::before {
   content: '';
   width: 0.65em;
   height: 0.65em;
@@ -681,6 +681,11 @@ input[type='checkbox']::before {
   box-shadow: inset 1em 1em var(--color2);
 }
 
-input[type='checkbox']:checked::before {
+form input[type='checkbox']:checked::before {
   transform: scale(1);
+}
+
+form input[type='checkbox']:hover {
+  outline: none;
+  box-shadow: 0 0 0 0.15em var(--color2);
 }
