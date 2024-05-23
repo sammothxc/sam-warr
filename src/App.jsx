@@ -262,12 +262,24 @@ function ContactUs() {
           <img id='footerimg' src={footerimg} className='svgs dark'/>
         </div>
         <div className='links'>
-          <li><a href='https://samwarrwebdev.com'>Copyright Notice</a></li>
-          <li><a href='https://samwarrwebdev.com'>Privacy Policy Link</a></li>
-          <li><a href='https://samwarrwebdev.com'>Sitemap</a></li>
-          <li><a href='https://samwarrwebdev.com'>Logo</a></li>
-          <li><a href='https://samwarrwebdev.com'>CP Info</a></li>
-          <li><a href='https://samwarrwebdev.com'>Github</a></li>
+          <li><a href='https://samwarrwebdev.com'>
+            Copyright © 2024, Sam Warr Web Development, or its affiliates
+          </a></li>
+          <li><a href='https://github.com/sammothxc/samwarrwebdev'>
+            Github
+          </a></li>
+          <li><a href='https://samwarrwebdev.com/sitemap.xml'>
+            Sitemap
+          </a></li>
+          <li><a href='https://samwarrwebdev.com/mainbl.svg'>
+            Logo
+          </a></li>
+          <li><a href='https://samwarrwebdev.com/copyright-notice.html'>
+            Copyright Notice
+          </a></li>
+          <li><a href='https://samwarrwebdev.com/privacy-policy'>
+            Privacy Policy
+          </a></li>
         </div>
       </div>
     </section>
