@@ -1,6 +1,6 @@
 :root {
   font-family: 'Anton', sans-serif;
-  --scroll-speed: 20s;
+  --scroll-speed: 40s;
   --background-overlay: rgba(0, 0, 0, 0.7);
   --background-code: #3b3b3b;
   --bg-color-light: #dfc6a0;
@@ -370,6 +370,10 @@ nav ul li a {
   position: relative;
   margin-left: 2rem;
   text-align: left;
+}
+
+.wrpr li {
+  margin: 0.5rem 0;
 }
 
 .scrolling-background {
