@@ -1,8 +1,6 @@
 import { useState, useEffect, React } from 'react'
 import { useForm, ValidationError } from '@formspree/react';
 import Typewriter from 'typewriter-effect';
-import mainbl from '/mainbl.svg'
-import footerimg from '/footerimg.svg'
 import './App.css'
 
 function Menu({ toggleTheme, theme }) {
@@ -76,7 +74,7 @@ function Home() {
     <section id='home' className='section'>
       <div>
         <div>
-          <img src={mainbl} className='svgs dark' />
+          <img src={`/mainbl.svg`} className='svgs dark' id='home-svg'/>
         </div>
       </div>
       <div className='terminal-container'>
@@ -140,6 +138,7 @@ function Services() {
           </div>
           <h2>Web Development /<p className='outline o2'>/</p></h2>
           <div className='wrpr mono'>
+            <img src={`/webdev.jpg`} className='skill-image'/>
             <p>
               From single page portfolios to multi-page business websites,
               we offer a wide range of services such as:
@@ -155,15 +154,35 @@ function Services() {
               Web Applications (User authentication, information portals,
               one-off online web tools)
             </li>
+            <p>
+              We specialize in the React.js framework, but we are open to
+              developing your website using the framework of your choice.
+            </p>
           </div>
         </div>
         <div className='skill'>
-          <h2>Web Design /<p className='outline o2'>/</p></h2>
+          <h2>Web Hosting /<p className='outline o2'>/</p></h2>
           <div className='wrpr mono'>
-            <img src={`/webdes.jpg`} className='skill-image'/>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <p>
+              From single page portfolios to multi-page business websites,
+              we offer a wide range of services such as:
+            </p>
+            <li>
+              Static Websites (HTML, CSS, JS)
+            </li>
+            <li>
+              Dynamic Websites (Backend development, Node.js server-side and
+              client-side, and API calls)
+            </li>
+            <li>
+              Web Applications (User authentication, information portals,
+              one-off online web tools)
+            </li>
+            <p>
+              We specialize in the React.js framework, but we are open to
+              developing your website using the framework of your choice.
+            </p>
+            <img src={`/webhost.svg`} className='skill-image svgs'/>
           </div>
         </div>
         <div className='skill'>
@@ -282,7 +301,7 @@ function Contact() {
       </div>
       <div id='links-container'>
         <div id='footer-img'>
-          <img id='footerimg' src={footerimg} className='svgs dark'/>
+          <img id='footerimg' src={'/footerimg.svg'} className='svgs dark'/>
         </div>
         <div className='links'>
           <li><a href='/'>
