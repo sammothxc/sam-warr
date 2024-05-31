@@ -799,47 +799,52 @@ form input[type='checkbox']:checked {
 
 /* /// CONTACT /// */
 
-#contact-container {
-  padding: 2rem 1rem;
-  flex-direction: column;
-  align-items: center;
-}
+  #contact-container {
+    padding: 2rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    
+  }
 
-#right {
-  width: 100%;
-  padding: 1rem;
-}
+  #right {
+    width: 100%;
+    padding: 1rem;
+  }
 
-.contact {
-  width: 100%;
-  padding: 1rem;
-}
+  #left a {
+    justify-content: center;
+  }
 
-.email {
-  font-size: 1.4rem;
-  text-align: center;
-}
+  .contact {
+    width: 100%;
+    padding: 1rem;
+  }
 
-#links-container {
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-}
+  .email {
+    font-size: 1.4rem;
+    text-align: center;
+  }
 
-.links {
-  flex-direction: column;
-  align-items: center;
-}
+  #links-container {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
 
-#footer-img {
-  display: none;
-}
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.cta {
-  font-size: 1.5rem;
-  padding: 10px 20px;
-}
+  #footer-img {
+    display: none;
+  }
+
+  .cta {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+  }
 
 /* /// QUOTE /// */
 
@@ -867,7 +872,11 @@ form input[type='checkbox']:checked {
   form button {
     width: 100%;
   }
+
 }
+
+
+
 
 /* //////////////////////////////////////////////// */
 /* //////                TABLET               ///// */

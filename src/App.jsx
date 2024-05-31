@@ -320,7 +320,7 @@ function Contact() {
         Send us an email or a quote and we'll get back to you as soon as possible!
       </p>
       <div id='contact-container'>
-        <div className='contact'>
+        <div id='left' className='contact'>
           <a onClick={togglePopup} className='cta mono'>
             <span>Get Quote</span>
             <span>
